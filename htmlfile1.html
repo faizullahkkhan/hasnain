@@ -1,131 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MY PORTFOLIO</title>
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>MY PORTFOLIO</title>
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f8ff;
-      color: #333;
-      line-height: 1.6;
-      
-    }
+ <style>
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
+   body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color: #f0f8ff;
+     color: #333;
+     line-height: 1.6;
+     display: flex; /* Enable flexbox for centering */
+     justify-content: center; /* Center horizontally */
+     align-items: center; /* Center vertically */
+     min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+     margin: 0; /* Reset any default body margin */
+   }
 
-    header {
-      background-color: #0077cc;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
+   .container {
+     max-width: 1000px;
+     padding: 20px;
+     text-align: center; /* Center header content */
+   }
 
-    header nav {
-      margin-top: 10px;
-    }
+   header {
+     background-color: #0077cc;
+     color: white;
+     padding: 20px 0;
+     text-align: center;
+     margin-bottom: 50px; /* Add some space below the header */
+   }
 
-    header nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+   header img {
+     width: 150px; /* Adjust the width to control the size */
+     height: 150px; /* Make it a square */
+     border-radius: 50%; /* Makes it a circle */
+     object-fit: cover; /* Ensures the image covers the circle without distortion */
+     border: 5px solid white; /* Optional: Add a white border */
+     display: block; /* To center the image within the header */
+     margin: 10px auto; /* Center horizontally and add some top/bottom margin */
+   }
 
-    header nav a:hover {
-      text-decoration: underline;
-    }
+   header nav {
+     margin-top: 10px;
+   }
 
-    section {
-      margin: 40px 0;
-    }
+   header nav a {
+     color: white;
+     margin: 0 15px;
+     text-decoration: none;
+     font-weight: bold;
+   }
 
-    section h2 {
-      margin-bottom: 15px;
-      color: #0077cc;
-      border-bottom: 2px solid #0077cc;
-      padding-bottom: 5px;
-    }
+   header nav a:hover {
+     text-decoration: underline;
+   }
 
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
+   section {
+     margin: 40px 0;
+     text-align: left; /* Align section content to the left */
+   }
 
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 50px;
-    }
+   section h2 {
+     margin-bottom: 15px;
+     color: #0077cc;
+     border-bottom: 2px solid #0077cc;
+     padding-bottom: 5px;
+   }
 
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
+   ul {
+     list-style-type: square;
+     padding-left: 20px;
+   }
 
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+   footer {
+     background-color: #333;
+     color: #fff;
+     text-align: center;
+     padding: 15px 0;
+     margin-top: 50px;
+   }
+
+   a {
+     color: #0077cc;
+     text-decoration: none;
+   }
+
+   a:hover {
+     text-decoration: underline;
+   }
+ </style>
 </head>
-<body>
-  <header>
-    <div class="container">
-      <h1>WELCOME TO MY PORTFOLIO</h1>
-        <img src="https://raw.githubusercontent.com/faizullahkkhan/hasnain/9810601cc25e9d6ac321805af4dee2d77782b361/7.jpg/300*200" alt="A young boy in a maroon traditional shirt, standing outdoors.">
-      <nav>
-        <a href="#about">ABOUT</a>
-        <a href="#projects">PROJECTS</a>
-        <a href="#skills">SKILLS</a>
-        <a href="#contact">CONTACT</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Hello! I'm a student learning web development. I love coding and creating websites.</p>
-    </section>
-
-    <section id="projects">
-      <h2>My Projects</h2>
-      <ul>
-        <li>College Assignment Website</li>
-        <li>Simple Calculator (HTML/JS)</li>
-      </ul>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <p>HTML, CSS, JavaScript (Basic)</p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:mhasnainkkhan765@email.com">mhasnainkkhan765@email.com</a></p>
-      <p>GitHub: <a href="https://github.com/hasnainkhan" target="_blank">github.com/hasnainkhan</a></p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Hasnain Khan</p>
-    </div>
-  </footer>
-</body>
-</html>
