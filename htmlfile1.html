@@ -1,98 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
- <title>MY PORTFOLIO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASNAIN KHAN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /*
+        ---------------------------------------------------
+        GLOBAL CSS STYLES (Your CSS goes here)
+        ---------------------------------------------------
+        */
+        :root {
+            --primary-color: #007bff; /* Primary color */
+            --secondary-color: #6c757d; /* Secondary color */
+            --background-color: #f8f9fa; /* Background color */
+            --text-color: #343a40; /* Text color */
+            --light-bg: #ffffff; /* Light background */
+            --dark-bg: #212529; /* Dark background (if dark mode) */
+        }
 
- <style>
-   * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-   }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
 
-   body {
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     background-color: #f0f8ff;
-     color: #333;
-     line-height: 1.6;
-     display: flex; /* Enable flexbox for centering */
-     justify-content: center; /* Center horizontally */
-     align-items: center; /* Center vertically */
-     min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
-     margin: 0; /* Reset any default body margin */
-   }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-   .container {
-     max-width: 1000px;
-     padding: 20px;
-     text-align: center; /* Center header content */
-   }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-   header {
-     background-color: #0077cc;
-     color: white;
-     padding: 20px 0;
-     text-align: center;
-     margin-bottom: 50px; /* Add some space below the header */
-   }
+        a:hover {
+            color: #0056b3;
+        }
 
-   header img {
-     width: 150px; /* Adjust the width to control the size */
-     height: 150px; /* Make it a square */
-     border-radius: 50%; /* Makes it a circle */
-     object-fit: cover; /* Ensures the image covers the circle without distortion */
-     border: 5px solid white; /* Optional: Add a white border */
-     display: block; /* To center the image within the header */
-     margin: 10px auto; /* Center horizontally and add some top/bottom margin */
-   }
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark-bg); /* Darker color for headings */
+            margin-bottom: 15px;
+        }
 
-   header nav {
-     margin-top: 10px;
-   }
+        /*
+        ---------------------------------------------------
+        HEADER & NAVIGATION STYLES
+        ---------------------------------------------------
+        */
+        .header {
+            background-color: var(--light-bg);
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-   header nav a {
-     color: white;
-     margin: 0 15px;
-     text-decoration: none;
-     font-weight: bold;
-   }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-   header nav a:hover {
-     text-decoration: underline;
-   }
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--dark-bg);
+        }
 
-   section {
-     margin: 40px 0;
-     text-align: left; /* Align section content to the left */
-   }
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
 
-   section h2 {
-     margin-bottom: 15px;
-     color: #0077cc;
-     border-bottom: 2px solid #0077cc;
-     padding-bottom: 5px;
-   }
+        .nav-links li {
+            margin-left: 30px;
+        }
 
-   ul {
-     list-style-type: square;
-     padding-left: 20px;
-   }
+        .nav-links a {
+            font-weight: 600;
+            color: var(--secondary-color);
+            position: relative;
+        }
 
-   footer {
-     background-color: #333;
-     color: #fff;
-     text-align: center;
-     padding: 15px 0;
-     margin-top: 50px;
-   }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
 
-   a {
-     color: #0077cc;
-     text-decoration: none;
-   }
+        /*
+        ---------------------------------------------------
+        HERO SECTION STYLES
+        ---------------------------------------------------
+        */
+        .hero {
+            background-color: #e9ecef;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+            position: relative; /* For positioning the image circle */
+        }
 
-   a:hover {
-     text-decoration: underline;
-   }
- </style>
+        /* New: Circular Image Container */
+        .profile-image-circle {
+            width: 180px; /* Adjust size as needed */
+            height: 180px; /* Adjust size as needed */
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary-color); /* Border around the circle */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin: -90px auto 30px; /* Adjust negative margin to pull it up into the hero */
+            background-color: #ffffff; /* Fallback if image not loaded */
+            display: flex; /* For centering content within the circle */
+            justify-content: center;
+            align-items: center;
+            position: relative; /* For absolute positioning if needed within hero */
+            z-index: 10; /* Ensure it's above other elements */
+        }
+
+        .profile-image-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the circle without distortion */
+            display: block;
+        }
+
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            margin-top: 0; /* Reset margin from the circle */
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /*
+        ---------------------------------------------------
+        ABOUT SECTION STYLES
+        ---------------------------------------------------
+        */
+        .about, .skills, .projects, .contact {
+            padding: 60px 0;
+            margin-bottom: 40px;
+            background-color: var(--light-bg);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--dark-bg);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+            display: none; /* Hide this as the circle in hero serves the purpose */
+        }
+
+        .about-image img {
+            max-width: 300px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        /*
+        ---------------------------------------------------
+        SKILLS SECTION STYLES
+        ---------------------------------------------------
+        */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            text-align: center;
+        }
+
+        .skill-item {
+            background-color: #f0f2f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-item i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .skill-item h3 {
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        /*
+        ---------------------------------------------------
+        PROJECTS SECTION STYLES
+        ---------------------------------------------------
+        */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #f0f2f5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .project-content p {
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .project-links a {
+            margin-right: 15px;
+            font-weight: 600;
+        }
+
+        /*
+        ---------------------------------------------------
+        CONTACT SECTION STYLES
+        ---------------------------------------------------
+        */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /*
+        ---------------------------------------------------
+        FOOTER STYLES
+        ---------------------------------------------------
+        */
+        .footer {
+            background-color: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /*
+        ---------------------------------------------------
+        RESPONSIVENESS (Media Queries)
+        ---------------------------------------------------
+        */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links li {
+                margin: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                margin-bottom: 20px;
+            }
+
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+<body>
+
+    <header class="header">
+        <div class="container navbar">
+            <a href="#" class="logo">MUHAMMAD HASNAIN KHAN</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">ABOUT ME</a></li>
+                    <li><a href="#skills">SKILLS</a></li>
+                    <li><a href="#projects">PROJECTS</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="profile-image-circle">
+                <img src="HASNAIN.jpg" alt="Your Profile Picture">
+            </div>
+            <h1>HEY, MY NAME IS MUHAMMAD HASNAIN KHAN</h1>
+            <a href="#projects" class="btn">VIEW MY PROJECTS</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">ABOUT ME</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>HELLO , MY NAME IS MUHAMMAD HASNAIN KHAN, I AM A PASSIONATE STUDENT. AND I LOVE CODING</p>
+                    <p>I USE HTML AND CSS TO CREATE BEAUTIFUL AND USER-FRIENDLY INTERFACES.</p>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">SKILLS</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript (ES6+)</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-react"></i>
+                    <h3>React (or your preferred framework)</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-node-js"></i>
+                    <h3>Node.js</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <h3>MongoDB / SQL</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git & GitHub</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-code-branch"></i>
+                    <h3>REST APIs</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="project-1-thumbnail.jpg" alt="Project 1">
+                    <div class="project-content">
+                        <h3>PROJECT</h3>
+                        <p>Here you will provide a brief description of your project. Mention the key technologies used in it.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fas fa-eye"></i> Live Demo</a>
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="project-2-thumbnail.jpg" alt="Project 2">
+                    <div class="project-content">
+                        <h3>Project </h3>
+                        <p></p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fas fa-eye"></i> Live Demo</a>
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="project-3-thumbnail.jpg" alt="Project 3">
+                    <div class="project-content">
+                        <h3>Project </h3>
+                        <p></p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fas fa-eye"></i> Live Demo</a>
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Send Message">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            <p>&copy; 2025 MUHAMMAD HASNAIN KHAN. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Example: Form Submission (Basic - For client-side validation only)
+        // For actual form submission, you'll need a backend (e.g., Node.js, PHP, or a service like Formspree)
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent default form submission
+
+                // Basic validation (you can add more complex validation here)
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                if (name === '' || email === '' || message === '') {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+
+                if (!email.includes('@') || !email.includes('.')) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+
+                // If validation passes, you would typically send this data to a backend
+                // For a static site, you might use a service like Formspree or Netlify Forms.
+                alert('Your message was sent successfully. (This is a demo only, not actually sent to a server)');
+
+                // Clear the form (optional)
+                contactForm.reset();
+            });
+        }
+
+        // Add more JavaScript for animations, interactive elements, etc.
+        // Example: Simple "Animate On Scroll" (AOS) - You'd integrate a library for this usually
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(`${entry.target.id} section is in view!`);
+                    // You can add a class here to trigger CSS animations
+                    // entry.target.classList.add('fade-in');
+                } else {
+                    // console.log(`${entry.target.id} section is out of view!`);
+                    // entry.target.classList.remove('fade-in'); // Optional: reset animation
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+
+</body>
+</html>
