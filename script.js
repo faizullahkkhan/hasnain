@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
       date: "jun 2025",
       image: "myphoto3.png",
       link: "myphoto3.png"
-    },
+    }, 
     {
       title: "Microsoft Excel",
       issuer: "Coursera",
